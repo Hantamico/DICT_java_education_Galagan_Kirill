@@ -21,6 +21,22 @@ public class ChatBot {
             for (int i = 0; i <= number; i++) {
                 System.out.println(i + "!");
             }
+            System.out.println("""
+                    Let`s test you knowledge.
+                    What is your favorite programming language?
+                    1. Java.
+                    2. Python.
+                    3. HTML/CSS.
+                    4. C++.""");
+            while (true) {
+                int answer = scanner.nextInt();
+                if (answer == 1){
+                    System.out.println("Great, you right!");
+                    break;
+                }
+                System.out.println("Please, try again.");
+            }
+            System.out.println("Goodbye, have a nice day!");
         }
     }
 }
