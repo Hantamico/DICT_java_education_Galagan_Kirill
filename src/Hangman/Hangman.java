@@ -2,6 +2,8 @@ package Hangman;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.Arrays;
 
 public class Hangman {
 
@@ -10,20 +12,29 @@ public class Hangman {
     private final int randomIndex = new Random().nextInt(words.length);
     public void anons() {
         System.out.println("HANGMAN");
-        System.out.println("The game will be available soon.");
+    }
+
+    public String hint(String word) {
+        String[] result = word.split("");
+        for (int i = 2; i < result.length; i++) {
+            result[i] = "-";
+        }
+        return String.join("", result);
     }
 
     public void guessWord() {
         Scanner in = new Scanner(System.in);
-        System.out.print("Guess the word >>> ");
+        String randomWords = words[randomIndex];
+        System.out.print("Guess the word " + hint(randomWords) + ">>> ");
         String userWord = in.next();
         in.close();
-        if (userWord.equals(words[randomIndex])) {
+        if (userWord.equals(randomWords)) {
             System.out.println("You survived!");
         } else {
             System.out.println("You lost!");
         }
     }
+
 
     public String[] getWords() {
         return words;
