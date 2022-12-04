@@ -2,9 +2,11 @@ package coffeeMachine;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-public class coffeeMachineDemo {
+public class CoffeeMachineDemo {
     public static void main(String[] args) {
-        coffeeMachine coffeeMachine = new CoffeeMachine();
+        CoffeeMachine coffeeMachine = new CoffeeMachine();
         coffeeMachine.menu();
+        UserInputClass userInputClass = new UserInputClass();
+        coffeeMachine.menu(userInputClass);
     }
 }
